@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Paz Json Garage</title>
+      <link rel="stylesheet" href="static/styles.css" />
+      <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+      <style>
+         .form-section {
+         margin: auto;
+         width: 50%;
+         text-align: center;
+         }
+         .center-text {
+         text-align: center;
+         display: block;
+         margin: auto;
+         }
+         .container {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+         }
+         button.container {
+         display: flex;
+         justify-content: center;
+         margin-top: 5px;
+         }
+      </style>
+   </head>
+   <body>
+      <h1 style="color: rgb(99, 183, 92);">Paz Garage</h1>
+      <!-- Employee list section -->
+      <div id="Employees" class="container"></div>
+      <!-- Navigation link -->
+      <center><a href="about.html">About</a><br /></center>
+      <!-- Form section -->
+      <div class="container form-section">
+         <h2>Register New Car</h2>
+         <form id="car-form">
+            <div class="input-group">
+               <label for="clientname">Client name:</label>
+               <input type="text" id="clientname" name="clientname" required />
+            </div>
+            <div class="input-group">
+               <label for="scar">Car:</label>
+               <input type="text" id="scar" name="scar" required />
+            </div>
+            <div class="input-group">
+               <label for="year">Year:</label>
+               <input type="number" id="year" name="year" required />
+            </div>
+            <div class="input-group">
+               <label for="fix">Fix:</label>
+               <input type="text" id="fix" name="fix" required />
+            </div>
+            <button class="center-text" id="add-car-button" type="button" onclick="newStudent()">Add new car</button>
+         </form>
+      </div>
+      <script>
+         const MY_SERVER = "http://127.0.0.1:5000";
+         const newStudent = async () => {
+           data = {
+             clientname: clientname.value,
+             car: scar.value,
+             year: year.value,
+             fix: fix.value,
+           };
+           students = await axios.post(MY_SERVER + "/new", data);
+           loadData();
+         };
+
+         const delStudent = async (id) => {
+           students = await axios.delete(MY_SERVER + `/del/${id}`);
+           loadData();
+         };
+         const updStudent = async (id) => {
+           console.log(id);
+           data = {
+             clientname: clientname.value,
+             car: scar.value,
+             year: year.value,
+             fix: fix.value,
+           };
+           students = await axios.put(MY_SERVER + `/upd/${id}`, data);
+           loadData();
+         };
+
+         const loadData = async () => {
+           students = await axios.get(MY_SERVER);
+           // console.log(students.data);
+           Employees.innerHTML = students.data
+             .map(
+               (emp) =>
+                 `<div>
+                   <p>${emp.name}, ${emp.car}, ${emp.year}, ${emp.fix}</p>
+                     <button onClick='delStudent(${emp.id})'>Delete ${emp.id}</button>
+                     <button onClick='updStudent(${emp.id})'>Update ${emp.id}</button>
+                   </button>
+                  </div>`
+             )
+             .join("");
+         };
+         loadData();
+      </script>
+   </body>
+</html>

@@ -1,0 +1,134 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  h1 {
+    color: rgb(99, 183, 92);
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .container h2 {
+    color: rgb(99, 183, 92);
+    margin-bottom: 10px;
+  }
+  
+  .input-group {
+    margin-bottom: 10px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: rgb(99, 183, 92);
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+  
+  .button-group {
+    text-align: right;
+    margin-top: 10px;
+  }
+  
+  .button-group button {
+    padding: 8px 16px;
+    border-radius: 3px;
+    border: none;
+    background-color: rgb(99, 183, 92);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-group button:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  .button-group button:hover {
+    background-color: #79a473;
+  }
+  
+  #Employees {
+    margin-top: 20px;
+  }
+  
+  #Employees div {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+  
+  #Employees div:last-child {
+    margin-bottom: 0;
+  }
+  
+  #Employees div button {
+    background-color: #4ab80b;
+    margin-left: 5px;
+    color: #fff;
+  }
+  
+  #Employees div button:hover {
+    background-color: #d14040;
+  }
+  
+  a {
+    color: rgb(99, 183, 92);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+
+  #add-car-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  #add-car-button:hover {
+    background-color: darkgreen;
+  }
+  
+  #add-car-button:focus {
+    outline: none;
+  }
+  .form-section {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+  }
+
+  button.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    }
